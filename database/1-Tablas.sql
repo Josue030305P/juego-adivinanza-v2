@@ -1,5 +1,21 @@
+
+
 CREATE DATABASE juego_v2;
 USE juego_v2;
+
+CREATE TABLE usuarios_juego (
+    idusuario INT PRIMARY KEY AUTO_INCREMENT,
+    nomuser VARCHAR(20) NOT NULL UNIQUE,
+    passuser VARCHAR(200) NOT NULL,
+    puntos INT NOT NULL DEFAULT 200,
+    created_at DATETIME NOT NULL DEFAULT NOW(),
+    updated_at DATETIME NULL,
+    inactive_at DATETIME NULL
+);
+INSERT INTO usuarios_juego (nomuser, passuser) VALUES
+    ('Josué', 'josue123');
+    
+SELECT * FROM usuarios_juego;
 
 CREATE TABLE niveles (
 idnivel INT PRIMARY KEY AUTO_INCREMENT,
@@ -42,24 +58,18 @@ INSERT INTO categorias(categoria) VALUES('Animales');
 SELECT * FROM categorias;
 
 INSERT INTO palabras (palabra, pista) VALUES
-('Paloma', 'Le gusta volar demasiado');
+('Pato', 'Dice cua cua');
  -- ('Sol', 'Es una estrella que da luz y calor');
 SELECT * FROM palabras;
 
 INSERT INTO imagenes (idcategoria,idnivel,idpalabra,imagen_url) VALUES
-				(1,1,4,'https://thumbs.dreamstime.com/b/pluma-de-la-paloma-43443565.jpg'),
-                (1,1,4,'https://as2.ftcdn.net/v2/jpg/04/58/58/55/1000_F_458585510_GEuh2HuZa9TFGiPOOnpvoee95F8yKWkA.jpg'),
-				(1,1,4,'https://static.vecteezy.com/system/resources/previews/017/143/778/non_2x/set-of-black-silhouettes-of-doves-in-flight-illustration-vector.jpg'),
-                (1,1,4,'https://thumbs.dreamstime.com/b/pluma-de-la-paloma-43443565.jpg');
+				(1,1,4,'https://www.parquewarner.com/content/dam/war/images/stores/foto-con-pato-lucas-en-su-camerino/Foto-con-Pato-Lucas-en%20su-Camerino-Parque-Warner-Madrid-2.jpg'),
+                (1,1,4,'https://mvsnoticias.com/u/fotografias/m/2024/2/2/f425x230-596630_610612_5050.jpg'),
+				(1,1,4,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg1KlV8C26Ea3D-pXbs0y6hgN3KCQZP3G0A&s'),
+                (1,1,4,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg1KlV8C26Ea3D-pXbs0y6hgN3KCQZP3G0A&s');
                 
                 
 SELECT * FROM imagenes;
 
 SELECT * FROM palabras WHERE palabra = 'Gato';
 SELECT * FROM imagenes WHERE idpalabra = 1;
-
-
-               
-                
-                
-

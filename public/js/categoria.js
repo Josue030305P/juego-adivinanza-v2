@@ -18,6 +18,7 @@ async function fetchCategorias() {
 
         const data = await response.json();
         const lista = document.getElementById('categorias-list');
+        console.log(data);
         lista.innerHTML = ''; 
 
         data.forEach(categoria => {

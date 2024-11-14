@@ -57,6 +57,19 @@
             text-align: center;
             margin-top: 20px;
         }
+        #intento {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #tiempo {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #dc3545; 
+        }
     </style>
 </head>
 <body>
@@ -67,24 +80,24 @@
         <div id="imagenes" class="d-flex justify-content-center flex-wrap mb-4"></div>
 
         <div id="progreso" class="mb-4"></div>
-
+        <p id="intento"></p>
+        <p id="tiempo"></p> <!-- Mostrar el tiempo restante -->
         
         <div class="input-group mb-4">
             <input type="text" id="respuesta" class="form-control" placeholder="Escribe tu respuesta aquí" aria-label="Respuesta">
         </div>
 
         <div class="d-flex justify-content-between">
-            <button class="btn btn-custom" onclick="verificarRespuesta()">Verificar</button>
-            <button class="btn btn-outline-info" onclick="mostrarPista()">Pista</button>
+            <button class="btn btn-custom" id="verificar">Verificar</button>
+            <button class="btn btn-outline-info" id="pista">Pista</button>
         </div>
 
         <p id="pista"></p> 
     </div>
 
-
-    <script src="/juego-v2/public/js/swalcustom.js"></script>
+    <script src="/juego-adivinanza-v2/public/js/swalcustom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="/juego-v2/public/js/nivel.facil.js"></script>
+    <script src="/juego-adivinanza-v2/public/js/nivel.facil.js"></script>
 </body>
 </html>

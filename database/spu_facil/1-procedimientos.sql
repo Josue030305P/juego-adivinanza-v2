@@ -1,3 +1,4 @@
+-- Active: 1726691870096@@127.0.0.1@3306@juego_v2
 DELIMITER //
 
 CREATE PROCEDURE sp_imagen_palabra_aleatoria()

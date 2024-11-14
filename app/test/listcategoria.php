@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/../models/Game.php');
+require_once('../models/Categoria.php');
 
 $game = new Categoria();
 $result = $game->listarCategorias();
