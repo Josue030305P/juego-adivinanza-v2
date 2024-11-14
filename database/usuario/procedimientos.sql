@@ -15,4 +15,4 @@ BEGIN
 END//
 DELIMITER ;
 
-CALL spu_usuarios_login('josue123');
+CALL spu_usuarios_login('Josué');

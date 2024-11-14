@@ -15,6 +15,8 @@ CREATE TABLE usuarios_juego (
 INSERT INTO usuarios_juego (nomuser, passuser) VALUES
     ('Josué', 'josue123');
     
+UPDATE usuarios_juego SET passuser = '$2y$10$oJP.UBBq/BV6t0lVizgdeuqksHk1VqWjrpEuAw9PuhFYLfdi4yL7K' WHERE idusuario = 1;
+    
 SELECT * FROM usuarios_juego;
 
 CREATE TABLE niveles (
