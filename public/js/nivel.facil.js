@@ -19,6 +19,7 @@ async function iniciarJuego() {
     actualizarProgreso();  // Actualizar el progreso en la interfaz
     mostrarIntentos();  // Mostrar el número de intentos disponibles
     iniciarTemporizador();  // Iniciar el temporizador
+    console.log(totalPalabras);
 }
 
 // Función que muestra imágenes no adivinadas
@@ -54,6 +55,7 @@ function actualizarProgreso() {
     document.getElementById('progreso').textContent = `Progreso: ${palabrasAdivinadas.length} / ${totalPalabras}`;
 }
 
+
 // Función que muestra los intentos restantes en la interfaz
 function mostrarIntentos() {
     intentoElemento.textContent = `Intentos restantes: ${intentos}`;
@@ -80,7 +82,6 @@ function iniciarTemporizador() {
     }, 1000);  // Resta un segundo cada 1000ms (1 segundo)
 }
 
-// Función para verificar si la respuesta del usuario es correcta
 async function verificarRespuesta() {
     if (intentos <= 0 || tiempoRestante <= 0) {
         showToast('Ya no tienes intentos disponibles o el tiempo se agotó. El juego ha terminado.', 'ERROR');
@@ -95,15 +96,18 @@ async function verificarRespuesta() {
     if (data.correcto) {  // Si la respuesta es correcta
         showToast(data.mensaje, 'SUCCESS');
         palabrasAdivinadas.push(window.palabraCorrecta);  // Marcar palabra como adivinada
+        actualizarProgreso();
         inputRespuesta.value = '';  // Limpiar el campo de respuesta
         mostrarImagenes(data.imagenes);  // Mostrar nuevas imágenes
         pistaActual = data.pista;  // Actualizar la pista
         pista.textContent = '';  // Limpiar pista actual
         actualizarProgreso();  // Actualizar progreso en la interfaz
 
-        // Si todas las palabras han sido adivinadas, mostrar mensaje de finalización
+        // Comprobar si todas las palabras han sido adivinadas
         if (palabrasAdivinadas.length === totalPalabras) {
             showToast('¡Felicidades! Has completado el juego.', 'SUCCESS');
+            inputRespuesta.disabled = true;
+            verificar.disabled = true;  // Desactivar el botón de verificar
         }
     } else {
         intentos--;  // Restar un intento
@@ -112,7 +116,7 @@ async function verificarRespuesta() {
 
         // Restar 10 segundos por cada respuesta incorrecta
         tiempoRestante -= 10;
-        if (tiempoRestante < 0 ||intentos === 0 ) tiempoRestante = 0;  // Evitar que el tiempo quede negativo
+        if (tiempoRestante < 0 || intentos === 0) tiempoRestante = 0;  // Evitar que el tiempo quede negativo
         mostrarTiempo();  // Actualizar el tiempo restante
 
         if (intentos === 0 || tiempoRestante === 0) {
@@ -123,6 +127,7 @@ async function verificarRespuesta() {
         }
     }
 }
+
 
 verificar.addEventListener('click', verificarRespuesta);
 pista.addEventListener('click', mostrarPista);

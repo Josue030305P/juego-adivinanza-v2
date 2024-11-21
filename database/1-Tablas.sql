@@ -15,7 +15,7 @@ CREATE TABLE usuarios_juego (
 INSERT INTO usuarios_juego (nomuser, passuser) VALUES
     ('Josué', 'josue123');
     
-UPDATE usuarios_juego SET passuser = '$2y$10$oJP.UBBq/BV6t0lVizgdeuqksHk1VqWjrpEuAw9PuhFYLfdi4yL7K' WHERE idusuario = 1;
+UPDATE usuarios_juego SET passuser = '$2y$10$wIDUorhzJQR/ReqxPoIDnuzTni4zytv0.jo70ggcm0GrSixNVHtSG' WHERE idusuario = 1;
     
 SELECT * FROM usuarios_juego;
 
@@ -54,8 +54,8 @@ CONSTRAINT fk_idnivel FOREIGN KEY(idnivel) REFERENCES niveles(idnivel),
 CONSTRAINT fk_idpalabra FOREIGN KEY(idpalabra) REFERENCES palabras(idpalabra)
 );
 
-INSERT INTO niveles(nivel) VALUES ('Facil');
-
+INSERT INTO niveles(nivel) VALUES ('Dificil');
+SELECT * FROM niveles;
 INSERT INTO categorias(categoria) VALUES('Animales');
 SELECT * FROM categorias;
 
@@ -65,10 +65,10 @@ INSERT INTO palabras (palabra, pista) VALUES
 SELECT * FROM palabras;
 
 INSERT INTO imagenes (idcategoria,idnivel,idpalabra,imagen_url) VALUES
-				(1,1,4,'https://www.parquewarner.com/content/dam/war/images/stores/foto-con-pato-lucas-en-su-camerino/Foto-con-Pato-Lucas-en%20su-Camerino-Parque-Warner-Madrid-2.jpg'),
-                (1,1,4,'https://mvsnoticias.com/u/fotografias/m/2024/2/2/f425x230-596630_610612_5050.jpg'),
-				(1,1,4,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg1KlV8C26Ea3D-pXbs0y6hgN3KCQZP3G0A&s'),
-                (1,1,4,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg1KlV8C26Ea3D-pXbs0y6hgN3KCQZP3G0A&s');
+				(1,1,1,'https://www.parquewarner.com/content/dam/war/images/stores/foto-con-pato-lucas-en-su-camerino/Foto-con-Pato-Lucas-en%20su-Camerino-Parque-Warner-Madrid-2.jpg'),
+                (1,1,1,'https://mvsnoticias.com/u/fotografias/m/2024/2/2/f425x230-596630_610612_5050.jpg'),
+				(1,1,1,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg1KlV8C26Ea3D-pXbs0y6hgN3KCQZP3G0A&s'),
+                (1,1,1,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFg1KlV8C26Ea3D-pXbs0y6hgN3KCQZP3G0A&s');
                 
                 
 SELECT * FROM imagenes;

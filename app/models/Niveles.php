@@ -29,5 +29,8 @@ class Niveles extends Conexion {
             return ['error' => 'Error al obtener total de palabras: ' . $e->getMessage()];
         }
     }
+
+    
+    
 }
 ?>

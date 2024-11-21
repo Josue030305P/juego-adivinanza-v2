@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['operation'] == 'login') {
         $claveEncriptada = $registro[0]['passuser'];
         if (password_verify($passuser, $claveEncriptada)) {
             $statusLogin["esCorrecto"] = true;
-            $statusLogin["mensaje"] = "Bienvenido";
+            $statusLogin["mensaje"] = "Bienvenido". ' ' . $registro[0]['nomuser'];;
             $_SESSION["login"] = [
                 "status" => true,
                 "idusuario" => $registro[0]['idusuario'],
